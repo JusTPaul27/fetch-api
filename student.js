@@ -1,26 +1,26 @@
 class Student {
-    constructor(id, name, surname, dob, avatarUrl) {
+    constructor(id, name, surname, dob, imageUrl) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.dob = dob;
-        this.avatarUrl = avatarUrl;
+        this.imageUrl = imageUrl;
     }
 
-    get dateOfBirth(){
-     return new Date(this.dob);
+    get dateOfBirth() {
+        return new Date(this.dob);
     }
 
-    set dateOfBirth(value){
+    set dateOfBirth(value) {
         this.dob = value.toISOString;
     }
 
-    getDaysToBirthday(){
+    getDaysToBirthday() {
         const today = new Date();
-        const todayInMillisecond = today.getTime(); 
+        const todayInMillisecond = today.getTime();
         const dobInMillisecond = this.dateOfBirth.getTime();
         const toBirthday = todayInMillisecond - dobInMillisecond;
-        const toBirthdayInDate = toBirthday / 1000 /60 /60 /24;
+        const toBirthdayInDate = toBirthday / 1000 / 60 / 60 / 24;
         const roundedBirthday = Math.floor(toBirthdayInDate);
         return roundedBirthday;
 

@@ -65,9 +65,14 @@ function displayStudents(arrayOFStudents) {
         const studentContainer = document.createElement('div');
         const span = document.createElement('span');
 
-        const node = document.createTextNode('Name: ' + student.name + ' '+ 'Surname: ' + student.surname + ' ' + 'Days to birthday: ' + student.getDaysToBirthday());
+        const node = document.createTextNode(' Name: ' + student.name); 
+        const nodeSurname = document.createTextNode(' Surname: ' + student.surname)
+        const nodeDob = document.createTextNode(' Days to birthday: ' + student.getDaysToBirthday() + '       ' +  student.imageUrl)
+        // const nodeImage = document.createElement
 
         span.appendChild(node);
+        span.appendChild(nodeSurname);
+        span.appendChild(nodeDob);
         studentContainer.appendChild(span);
         arrayContainer.appendChild(studentContainer);
     }
@@ -80,4 +85,3 @@ function convertResultInArrayOfStudents(result) {
     arrayOFStudents = result.map(obj=> Student.fromObj(obj));
     return arrayOFStudents;
 }
-
