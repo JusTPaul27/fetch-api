@@ -64,11 +64,12 @@ function displayStudents(arrayOFStudents) {
         const student = arrayOFStudents[i];
         const studentContainer = document.createElement('div');
         const span = document.createElement('span');
+        const img = document.createElement('img');
 
         const node = document.createTextNode(' Name: ' + student.name); 
         const nodeSurname = document.createTextNode(' Surname: ' + student.surname)
-        const nodeDob = document.createTextNode(' Days to birthday: ' + student.getDaysToBirthday() + '       ' +  student.imageUrl)
-        // const nodeImage = document.createElement
+        const nodeDob = document.createTextNode(' Days to birthday: ' + student.getDaysToBirthday())
+        
 
         span.appendChild(node);
         span.appendChild(nodeSurname);
