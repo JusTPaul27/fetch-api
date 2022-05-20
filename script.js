@@ -40,13 +40,38 @@ const createTextSpan = (text) => {
 //     return span
 // }
 
+const deleteCallBack = () => {
+    initApp();
+}
+
+const deleteStudent = (id) => {
+    const deleteUrl = 'https://62860d1f96bccbf32d6e2c06.mockapi.io/students/' + id
+    const fetchConf = {
+        method: 'delete'
+    }
+    fetch(deleteUrl, fetchConf)
+         .then(responseCallBack)
+         .then(deleteCallBack);
+}
+
+const createDeleteButton = (id) => {
+    const button = document.createElement('button');
+    button.onclick = () => deleteStudent(id);
+    const node = document.createTextNode('Cancella');
+    button.appendChild(node);
+    return button
+}
+
 
 createStudentCard = (student) => {
     const studentCard = document.createElement('div');
     studentCard.classList.add('student-card')
     studentCard.appendChild(createAvatarImage(student.avatar))
     studentCard.appendChild(createTextSpan(student.name + ' ' + student.surname));
-    studentCard.appendChild(createTextSpan('  Giorni al compleanno: ' + student.getDaysToBirthday()))
+    studentCard.appendChild(createTextSpan('  Giorni al compleanno: ' + student.getDaysToBirthday()));
+    studentCard.appendChild(createDeleteButton(student.id));
+
+   
     return studentCard;
 }
 
@@ -63,6 +88,7 @@ const resultCallBack = (result) => displayStudents(convertResultInArrayOfStudent
 // }
 
 const displayStudents = (arrayOFStudents) =>{
+    document.body.innerHTML = '';
     const arrayContainer = document.createElement('div');
 
     arrayContainer.append(...createArrayOfStudentCard(arrayOFStudents));
