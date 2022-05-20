@@ -1,10 +1,10 @@
 class Student {
-    constructor(id, name, surname, dob, imageUrl) {
+    constructor(id, name, surname, dob, avatar) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.dob = dob;
-        this.imageUrl = imageUrl;
+        this.avatar = avatar;
     }
 
     get dateOfBirth() {
